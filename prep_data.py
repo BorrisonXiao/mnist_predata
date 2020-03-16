@@ -8,11 +8,10 @@ from os import path
 import os
 
 
-def parse_labels(fname, ftype, mn, num):
+def parse_labels(fname, mn, num):
     """
     Parse labels from the original binary file.
     :param fname: The original binary file.
-    :param ftype: The type of data, either test or training.
     :param mn: The magic number for validation.
     :param num: The number of elements for validation.
     :return: An array of labels.
@@ -74,11 +73,11 @@ def main():
     Pre-process the test and training data from the original binary files and store them into a HDF5 file.
     :return: None
     """
-    training_labels = parse_labels('data/train-labels.idx1-ubyte', ftype="training", mn=2049, num=60000)
+    training_labels = parse_labels('data/train-labels.idx1-ubyte', mn=2049, num=60000)
     print(training_labels)
     print(len(training_labels))
 
-    test_labels = parse_labels('data/t10k-labels.idx1-ubyte',ftype="test", mn=2049, num=10000)
+    test_labels = parse_labels('data/t10k-labels.idx1-ubyte', mn=2049, num=10000)
     print(test_labels)
     print(len(test_labels))
 

@@ -2,3 +2,4 @@ img/
 venv/
 .DS_Store
 .idea
+mnist.h5
